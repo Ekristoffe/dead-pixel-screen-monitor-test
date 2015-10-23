@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dead Pixel Test</title>
+<meta name="description" content="Dead Pixel Monitor Test">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/skeleton.css">
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<style>
+#main {
+    padding-top:30px;
+    text-align: center;
+}
+#formatUl {
+    width: 22%; /* to make list right-aligned and centered */
+    margin: 0 auto;
+    text-align: left;
+}
+</style>
+
+</head>
+<body>
+
+
+<div class="container" id="main">
+
+<!--
+    ToDos?:
+        Detect User Agent for mobile/tablet for fullscreen
+        Add mobile/tablet support (cycle through backgrounds) onTouch event
+        More colors
+        
+ -->
+    
+</div>
+
+
+
+<script>
+
+//Perhaps should just make a function that hides the visibility of the div instead of using javascript to write to it
+function writeHelpToPage() {
+    var help = "";
+    help += "<h1>Test your monitor for dead pixels</h1>";
+    help += "<p>Press F11 to make your browser go fullscreen. Press the same key again to exit fullscreen (F11).</p>";
+    help += "<p>Supports Chrome, Firefox, and IE9+.</p>"
+    help += "<ul id='formatUl'>";
+    help += "<li>Press 1 for this home screen.</li><li>Press 2 for a black screen</li><li>Press 3 for a red screen</li><li>Press 4 for a green screen</li><li>Press 5 for a blue screen</li><li>Press 6 for a white screen</li><li>Press 7 for a yellow screen</li><li>Press 8 for an aqua screen</li><li>Press 9 for a lime screen</li>";
+    help += "</ul>";
+    help += "<br>";
+
+    document.getElementById("main").innerHTML = help;
+}
+
+writeHelpToPage();
+
+document.onkeypress = function(event) {
+
+    console.log(event);
+
+    if(event.charCode == 49 || event.charCode == 27) {
+        document.body.style.backgroundColor = "white";
+        writeHelpToPage();
+    }
+    else if (event.charCode == 50) {
+        document.body.style.backgroundColor = "black";
+        document.getElementById("main").innerHTML = "";
+    }
+    else if (event.charCode == 51) {
+        document.body.style.backgroundColor = "red";
+        document.getElementById("main").innerHTML = "";
+    }
+    else if (event.charCode == 52) {
+        document.body.style.backgroundColor = "green";
+        document.getElementById("main").innerHTML = "";
+    }
+    else if (event.charCode == 53) {
+        document.body.style.backgroundColor = "blue";
+        document.getElementById("main").innerHTML = "";
+    }
+    else if (event.charCode == 54) {
+        document.body.style.backgroundColor = "white";
+        document.getElementById("main").innerHTML = "";
+    }
+    else if (event.charCode == 55) {
+        document.body.style.backgroundColor = "yellow";
+        document.getElementById("main").innerHTML = "";
+    }
+    else if (event.charCode == 56) {
+        document.body.style.backgroundColor = "aqua";
+        document.getElementById("main").innerHTML = "";
+    }
+    else if (event.charCode == 57) {
+        document.body.style.backgroundColor = "lime";
+        document.getElementById("main").innerHTML = "";
+    }
+
+}
+
+
+
+</script>
+</body>
+</html>
